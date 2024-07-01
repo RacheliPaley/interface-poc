@@ -1,25 +1,43 @@
-fn main() -> u32 {
-    fib(16)
+mod oracle {
+    mod interface;
+    mod price_feed;
 }
 
-fn fib(mut n: u32) -> u32 {
-    let mut a: u32 = 0;
-    let mut b: u32 = 1;
-    while n != 0 {
-        n = n - 1;
-        let temp = b;
-        b = a + b;
-        a = temp;
-    };
-    a
+mod staking {
+    mod interface;
+    mod lqty;
+    mod issuance;
 }
 
-#[cfg(test)]
-mod tests {
-    use super::fib;
+mod utils {
+    mod interface;
+    mod math;
+    mod math128;
+    mod safe_math;
+}
 
-    #[test]
-    fn it_works() {
-        assert(fib(16) == 987, 'it works!');
-    }
+mod token {
+    mod interface;
+    mod lqty;
+    mod lusd;
+}
+
+mod pool {
+    mod interface;
+    mod active;
+    mod collateral;
+    mod default;
+    mod rewards;
+    mod stability;
+}
+
+mod trove {
+    mod interface;
+    mod borrower;
+    mod manager;
+}
+
+mod presets {
+    mod borrower_operations;
+    mod stability_pool;
 }
